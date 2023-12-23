@@ -1,0 +1,22 @@
+toolbox:
+  enabled: true
+dav:
+  enabled: true
+nstoreDownloader:
+  enabled: true
+global:
+  environment:
+    renderComments: true
+    ingress:
+      domain: "{{ .Release.Name }}.demo.nplus.cloud"
+      class: "public"
+      proxyip: "0.0.0.0/0"
+      issuer: "nplus-issuer"
+    storage:
+      conf:
+        class: "cephfs"
+      data:
+        class: "ceph-rbd"
+      file:
+        class: "cephfs"
+    appInstaller: "/pool/app-installer-9.0.1202.jar"

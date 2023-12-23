@@ -1,0 +1,36 @@
+components:
+  nappl: true
+  nappljobs: true
+  web: true
+  mon: true
+  rs: true
+  ilm: true
+  cmis: true
+  database: true
+  nstl: true
+  pipeliner: false
+  application: true
+
+web:
+  replicaCount: 2
+
+rs:
+  replicaCount: 2
+
+ilm:
+  replicaCount: 2
+
+cmis:
+  replicaCount: 2
+
+nappl:
+  replicaCount: 2
+  jobs: false
+  waitFor:
+    - '{{ include "nplus.prefix" . }}nappljobs.{{ .Release.Namespace }}.svc.cluster.local:8080 -t 600'
+
+nappljobs:
+  replicaCount: 1
+  jobs: true
+  ingress:
+    enabled: false

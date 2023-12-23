@@ -1,0 +1,13 @@
+components:
+  application: false
+  nappl: false
+  nappljobs: false
+  rs: true
+  mon: true
+  cmis: false
+  ilm: false
+  database: false
+  web: false
+  nstl: true
+  pipeliner: false
+

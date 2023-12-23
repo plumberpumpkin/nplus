@@ -1,0 +1,11 @@
+apiVersion: v2
+name: sample-tenant
+description: |
+  The sample tenant chart demonstrates how to use umbrella charts with default values,
+  e.g. to define tenant templates
+type: application
+dependencies:
+  - name: nplus-instance
+    alias: instance
+    version: "*-0"
+    repository: "https://helm.nplus.cloud"

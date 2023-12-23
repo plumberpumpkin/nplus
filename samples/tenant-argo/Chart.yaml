@@ -1,0 +1,11 @@
+apiVersion: v2
+name: sample-tenant-argo
+description: |
+  This is the argoCD Version of the sample tenant chart. It demonstrates the use of umbrella
+  charts to customize default values for your environment or tenant templates.
+type: application
+dependencies:
+  - name: nplus-instance-argo
+    alias: instance-argo
+    version: "*-0"
+    repository: "https://helm.nplus.cloud"

@@ -1,0 +1,27 @@
+toolbox:
+  enabled: true
+dav:
+  enabled: true
+nstoreDownloader:
+  enabled: true
+global:
+  environment:
+    ingress:
+      class: "ingress-internal"
+      domain: "{{ .Release.Name }}.dev.nplus.cloud"
+      issuer: "nplus-issuer"
+      proxyip: "0.0.0.0/0"
+    storage:
+      conf:
+        class: "pv-af-auto"
+      data:
+        class: "pv-disk-auto"
+      file:
+        class: "pv-af-auto"
+    appInstaller: "/pool/app-installer-9.0.1202.jar"
+    security:
+      illumio:
+        enabled: true
+        loc: "samples"
+        supplier: "42i"
+        platform: "nplus.cloud"

@@ -1,0 +1,34 @@
+argocd:
+  namespace: argocd
+  project: default
+  server: "https://kubernetes.default.svc"
+  selfHeal: true
+  prune: true
+  repo: "https://helm.nplus.cloud"
+components:
+  application: true
+application:
+  docAreas:
+    - id: "SBS"
+      name: "DocArea with SBS"
+      description: "This is a sample DocArea with the SBS Apps installed"
+      apps:
+      - "/pool/bl-app-9.0.1202.zip"
+      - "/pool/gdpr-app-9.0.1302.zip"
+      - "/pool/sbs-base-9.0.1302.zip"
+      - "/pool/sbs-app-9.0.1302.zip"
+      - "/pool/tmpl-app-9.0.1302.zip"
+      - "/pool/cm-base-9.0.1302.zip"
+      - "/pool/cm-app-9.0.1302.zip"
+      - "/pool/hr-base-9.0.1302.zip"
+      - "/pool/hr-app-9.0.1302.zip"
+      - "/pool/pm-base-9.0.1302.zip"
+      - "/pool/pm-app-9.0.1302.zip"
+      - "/pool/sd-base-9.0.1302.zip"
+      - "/pool/sd-app-9.0.1302.zip"
+      - "/pool/kon-app-9.0.1302.zip"
+      - "/pool/kal-app-9.0.1302.zip"
+      - "/pool/dok-app-9.0.1302.zip"
+      - "/pool/ts-base-9.0.1302.zip"
+      - "/pool/ts-app-9.0.1302.zip"
+      - "/pool/ocr-base-9.0.1302.zip"

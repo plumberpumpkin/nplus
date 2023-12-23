@@ -1,0 +1,9 @@
+instance-argo:
+  argocd:
+    chart: sample-tenant
+    namespace: argocd
+    project: default
+    server: "https://kubernetes.default.svc"
+    selfHeal: true
+    prune: true
+    repo: "https://helm.nplus.cloud"

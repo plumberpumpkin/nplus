@@ -1,0 +1,13 @@
+components:
+  application: true
+  rs: false
+  mon: false
+  nstl: false
+
+application:
+  enabled: true
+  docAreas:
+    - id: "DA"
+  nstl: 'demo-centralservices-nstl.{{ .Release.Namespace }}'
+  rs: 'demo-centralservices-rs.{{ .Release.Namespace }}'
+

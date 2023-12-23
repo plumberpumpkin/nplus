@@ -1,0 +1,6 @@
+tmp/*
+logs/*
+*.tgz
+artifacts/*
+nplus/charts/*/charts/
+Chart.lock

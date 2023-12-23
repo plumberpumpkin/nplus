@@ -1,0 +1,10 @@
+instance:
+  components:
+    application: true
+  application:
+    docAreas:
+      - id: "Sample"
+global:
+  environment:
+    ingress:
+      domain: "{{ .Release.Name }}.sample.nplus.cloud"
