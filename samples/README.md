@@ -124,3 +124,23 @@ When deploying using argoCD, you can use the same files but just add an `*-argo`
     empty-argo nplus/nplus-instance-argo
 
 And so forth...
+
+# Check whats deployed
+
+```
+% kubectl get nplus
+NAME                        HANDLER   VERSION    CHART   GEN   COMPONENTS
+default                     Helm      9.1.1201   1.0.3   3     database,nappl,nstl,rs,web
+demo-all-in-one             Helm      9.1.1201   1.0.3   3     application,cmis(2),database,ilm(2),mon,nappl(2),nappljobs,nstl,rs(2),web(2)
+demo-centralservices        Helm      9.1.1201   1.0.3   3     mon,nstl,rs
+demo-shared                 Helm      9.1.1201   1.0.3   3     application,database,nappl,web
+empty                       Helm      9.1.1201   1.0.3   3     application,database,nappl,nstl,rs,web
+tenant                      Helm      9.1.1201   1.0.3   3     application,database,nappl,nstl,rs,web
+sbs                         Helm      9.1.1201   1.0.3   4     application,database,nappl,nstl,rs,web
+demo-centralservices-argo   argoCD    9.1.1201   1.0.3   3     mon,nstl,rs
+demo-shared-argo            argoCD    9.1.1201   1.0.3   3     application,database,nappl,web
+empty-argo                  argoCD    9.1.1201   1.0.3   3     application,database,nappl,nstl,rs,web
+demo-all-in-one-argo        argoCD    9.1.1201   1.0.3   3     application,cmis(2),database,ilm(2),mon,nappl(2),nappljobs,nstl,rs(2),web(2)
+tenant-argo                 Helm      9.1.1201   1.0.3   3     application,database,nappl,nstl,rs,web
+sbs-argo                    argoCD    9.1.1201   1.0.3   3     application,database,nappl,nstl,rs,web
+```

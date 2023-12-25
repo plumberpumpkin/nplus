@@ -7,3 +7,5 @@ instance-argo:
     selfHeal: true
     prune: true
     repo: "https://helm.nplus.cloud"
+global:
+  isArgo: true

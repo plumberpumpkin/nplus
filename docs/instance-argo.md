@@ -17,6 +17,7 @@ $ helm install my-release nplus/nplus-instance-argo
 
 | Key | Description | Default |
 |-----|-------------|---------|
+global.isArgo |  | `true` |
 argocd.chart |  | `"nplus-instance"` |
 argocd.namespace |  | `"argocd"` |
 argocd.project |  | `"default"` |

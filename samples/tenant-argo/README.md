@@ -18,6 +18,7 @@ $ helm install my-release nplus/sample-tenant-argo
 
 | Key | Description | Default |
 |-----|-------------|---------|
+global.isArgo |  | `true` |
 instance-argo.argocd.chart |  | `"sample-tenant"` |
 instance-argo.argocd.namespace |  | `"argocd"` |
 instance-argo.argocd.project |  | `"default"` |
