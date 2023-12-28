@@ -26,8 +26,8 @@ global.environment.storage.file.class | defines environment-wide file storage cl
 dav.account | the dav user | `"admin"` |
 dav.enabled | set to false if you want to disable dav access completely. you can still use kubectl cp to copy snippets etc. to the config folder. | `false` |
 dav.image | the Image to use for the DAV server. | see section "Image Configuration" |
-dav.image.name | DAV Server image name | `"dav"` |
-dav.image.repo | DAV Server image repository | `"cr.nplus.cloud/42i"` |
+dav.image.name | DAV Server image name | `"toolbox2"` |
+dav.image.repo | DAV Server image repository | `"cr.nplus.cloud/nplus"` |
 dav.password | password of the dav user | `"admin"` |
 dav.secret | Alternatively, define a secret |  |
 ingress.enabled | enables the Ingress to the DAV Server. Additionally, you have to set a domain (see above) | `true` |
@@ -38,7 +38,7 @@ storage.conf.name | this is the name of the common config storage. please see se
 storage.conf.size | this is the size of the common config storage. please see section "Storage" for more information | `"10Gi"` |
 toolbox.enabled | set to false if you want to disable dav access completely. you can still use kubectl cp to copy snippets etc. to the config folder. | `false` |
 toolbox.image | the Image to use for the Toolbox. | see section "Image Configuration" |
-toolbox.image.name | Toolbox image name | `"toolbox"` |
+toolbox.image.name | Toolbox image name | `"toolbox2"` |
 toolbox.image.repo | Toolbox image repository | `"cr.nplus.cloud/nplus"` |
 
 ## Common Image Configuration

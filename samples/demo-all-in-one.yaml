@@ -27,7 +27,7 @@ nappl:
   replicaCount: 2
   jobs: false
   waitFor:
-    - '{{ include "nplus.prefix" . }}nappljobs.{{ .Release.Namespace }}.svc.cluster.local:8080 -t 600'
+    - '-service {{ include "nplus.prefix" . }}nappljobs.{{ .Release.Namespace }}.svc.cluster.local:8080 -timeout 600'
 
 nappljobs:
   replicaCount: 1

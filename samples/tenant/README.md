@@ -41,8 +41,9 @@ global.nappl.host |  | `"{{ include \"nplus.prefix\" . }}nappl.{{ .Release.Names
 global.nappl.instance |  | `"nscalealinst1"` |
 global.nappl.port |  | `"8080"` |
 global.nappl.ssl |  | `"0"` |
-global.waitImage.name |  | `"wait"` |
-global.waitImage.repo |  | `"cr.nplus.cloud/42i"` |
+global.waitImage.name |  | `"toolbox2"` |
+global.waitImage.pullPolicy |  | `"Always"` |
+global.waitImage.repo |  | `"cr.nplus.cloud/nplus"` |
 global.waitImage.tag |  | `"latest"` |
 instance.application.docAreas[0].id |  | `"Sample"` |
 instance.components.application |  | `true` |
@@ -56,7 +57,7 @@ instance.application.nappl.secret |  |  |
 instance.application.nappl.ssl |  | `"0"` |
 instance.application.nstl |  | `"{{ include \"nplus.prefix\" . }}nstl.{{ .Release.Namespace }}"` |
 instance.application.rs |  | `"{{ include \"nplus.prefix\" . }}rs.{{ .Release.Namespace }}"` |
-instance.application.waitFor[0] |  | `"{{ include \"nplus.prefix\" . }}nappl.{{ .Release.Namespace }}.svc.cluster.local:8080 -t 1800"` |
+instance.application.waitFor[0] |  | `"-service {{ include \"nplus.prefix\" . }}nappl.{{ .Release.Namespace }}.svc.cluster.local:8080 -timeout 1800"` |
 instance.application.wave |  | `3` |
 instance.components.application |  | `false` |
 instance.components.cmis |  | `false` |
@@ -201,8 +202,8 @@ instance.nstl.mounts.data.size | Sets the size of the data disk | `"50Gi"` |
 instance.nstl.mounts.logs.medium | the medium for the emptyDisk volume if you unset it, it drops it from the manifest |  |
 instance.nstl.mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"10Gi"` |
 instance.pipeliner.dav.account | the dav user | `"pipeliner"` |
-instance.pipeliner.dav.image | the Image to use for the DAV server | `{"name":"dav","repo":"cr.nplus.cloud/42i","tag":"latest"}` |
-instance.pipeliner.dav.imagePullPolicy | the DAV server image pull policy | `"IfNotPresent"` |
+instance.pipeliner.dav.image | the Image to use for the DAV server | `{"name":"toolbox2","pullPolicy":"Always","repo":"cr.nplus.cloud/nplus","tag":"latest"}` |
+instance.pipeliner.dav.image.pullPolicy | the DAV server image pull policy | `"Always"` |
 instance.pipeliner.dav.password | password of the dav user | `"pipeliner"` |
 instance.pipeliner.dav.secret | Alternatively, define a secret |  |
 instance.pipeliner.image.name |  | `"pipeliner"` |

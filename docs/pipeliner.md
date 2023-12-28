@@ -18,8 +18,8 @@ $ helm install my-release nplus/nplus-component-pipeliner
 | Key | Description | Default |
 |-----|-------------|---------|
 dav.account | the dav user | `"pipeliner"` |
-dav.image | the Image to use for the DAV server | `{"name":"dav","repo":"cr.nplus.cloud/42i","tag":"latest"}` |
-dav.imagePullPolicy | the DAV server image pull policy | `"IfNotPresent"` |
+dav.image | the Image to use for the DAV server | `{"name":"toolbox2","pullPolicy":"Always","repo":"cr.nplus.cloud/nplus","tag":"latest"}` |
+dav.image.pullPolicy | the DAV server image pull policy | `"Always"` |
 dav.password | password of the dav user | `"pipeliner"` |
 dav.secret | Alternatively, define a secret |  |
 image.name |  | `"pipeliner"` |

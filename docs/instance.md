@@ -40,8 +40,9 @@ global.nappl.host |  | `"{{ include \"nplus.prefix\" . }}nappl.{{ .Release.Names
 global.nappl.instance |  | `"nscalealinst1"` |
 global.nappl.port |  | `"8080"` |
 global.nappl.ssl |  | `"0"` |
-global.waitImage.name |  | `"wait"` |
-global.waitImage.repo |  | `"cr.nplus.cloud/42i"` |
+global.waitImage.name |  | `"toolbox2"` |
+global.waitImage.pullPolicy |  | `"Always"` |
+global.waitImage.repo |  | `"cr.nplus.cloud/nplus"` |
 global.waitImage.tag |  | `"latest"` |
 application.nappl.account |  | `"admin"` |
 application.nappl.domain |  | `"nscale"` |
@@ -53,7 +54,7 @@ application.nappl.secret |  |  |
 application.nappl.ssl |  | `"0"` |
 application.nstl |  | `"{{ include \"nplus.prefix\" . }}nstl.{{ .Release.Namespace }}"` |
 application.rs |  | `"{{ include \"nplus.prefix\" . }}rs.{{ .Release.Namespace }}"` |
-application.waitFor[0] |  | `"{{ include \"nplus.prefix\" . }}nappl.{{ .Release.Namespace }}.svc.cluster.local:8080 -t 1800"` |
+application.waitFor[0] |  | `"-service {{ include \"nplus.prefix\" . }}nappl.{{ .Release.Namespace }}.svc.cluster.local:8080 -timeout 1800"` |
 application.wave |  | `3` |
 components.application |  | `false` |
 components.cmis |  | `false` |
@@ -198,8 +199,8 @@ nstl.mounts.data.size | Sets the size of the data disk | `"50Gi"` |
 nstl.mounts.logs.medium | the medium for the emptyDisk volume if you unset it, it drops it from the manifest |  |
 nstl.mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"10Gi"` |
 pipeliner.dav.account | the dav user | `"pipeliner"` |
-pipeliner.dav.image | the Image to use for the DAV server | `{"name":"dav","repo":"cr.nplus.cloud/42i","tag":"latest"}` |
-pipeliner.dav.imagePullPolicy | the DAV server image pull policy | `"IfNotPresent"` |
+pipeliner.dav.image | the Image to use for the DAV server | `{"name":"toolbox2","pullPolicy":"Always","repo":"cr.nplus.cloud/nplus","tag":"latest"}` |
+pipeliner.dav.image.pullPolicy | the DAV server image pull policy | `"Always"` |
 pipeliner.dav.password | password of the dav user | `"pipeliner"` |
 pipeliner.dav.secret | Alternatively, define a secret |  |
 pipeliner.image.name |  | `"pipeliner"` |

@@ -125,6 +125,8 @@ When deploying using argoCD, you can use the same files but just add an `*-argo`
 
 And so forth...
 
+
+
 # Check whats deployed
 
 ```
