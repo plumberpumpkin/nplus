@@ -31,6 +31,9 @@ nappl.secret |  |  |
 nappl.ssl |  |  |
 nstl |  |  |
 rs |  |  |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 wave |  |  |
 
 ## Common Image Configuration

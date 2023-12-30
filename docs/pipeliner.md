@@ -32,6 +32,12 @@ mounts.data.size |  | `"10Gi"` |
 mounts.license.path |  | `"/opt/ceyoniq/nscale-pipeliner/workdir/license.xml"` |
 mounts.logs.path |  | `"/opt/ceyoniq/nscale-server/storage-layer/log"` |
 replicaCount |  | `1` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 wave |  |  |
 
 ## Common Image Configuration

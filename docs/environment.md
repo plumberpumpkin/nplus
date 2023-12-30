@@ -34,6 +34,12 @@ ingress.enabled | enables the Ingress to the DAV Server. Additionally, you have 
 nstoreDownloader.enabled | enables the nstore downloader | `false` |
 nstoreDownloader.nstore | set the nstore URL | `https://nstore.ceyoniq.com...` |
 nstoreDownloader.target | target directory in the conf pv | `"pool"` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 storage.conf.name | this is the name of the common config storage. please see section "Storage" for more information | `"conf"` |
 storage.conf.size | this is the size of the common config storage. please see section "Storage" for more information | `"10Gi"` |
 toolbox.enabled | set to false if you want to disable dav access completely. you can still use kubectl cp to copy snippets etc. to the config folder. | `false` |

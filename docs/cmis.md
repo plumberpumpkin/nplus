@@ -24,9 +24,17 @@ image.tag |  | `"ubi.9.1.1200.2023112711"` |
 ingress.backendProtocol |  | `"http"` |
 ingress.enabled |  | `true` |
 mounts.conf.path |  | `"/opt/ceyoniq/nscale-cmis-connector/conf"` |
+mounts.logs.path |  | `"/opt/ceyoniq/nscale-cmis-connector/logs"` |
+mounts.logs.size |  | `"1Gi"` |
 mounts.temp.path |  | `"/opt/ceyoniq/nscale-cmis-connector/temp"` |
 mounts.temp.size |  | `"1Gi"` |
 replicaCount |  | `1` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 wave |  |  |
 
 ## Common Image Configuration

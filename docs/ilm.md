@@ -23,6 +23,8 @@ image.tag |  | `"ubi.9.1.1100.2023102502"` |
 ingress.backendProtocol |  | `"http"` |
 ingress.enabled |  | `true` |
 mounts.conf.path |  | `"/opt/ceyoniq/nscale-for-sap/erp-connector-ilm/conf"` |
+mounts.logs.path |  | `"/opt/ceyoniq/nscale-for-sap/erp-connector-ilm/logs"` |
+mounts.logs.size |  | `"1Gi"` |
 mounts.temp.path |  | `"/opt/ceyoniq/nscale-for-sap/erp-connector-ilm/temp"` |
 mounts.temp.size |  | `"1Gi"` |
 nappl.account |  |  |
@@ -33,6 +35,12 @@ nappl.port |  |  |
 nappl.secret |  |  |
 nappl.ssl |  |  |
 replicaCount |  | `1` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 
 ## Common Image Configuration
 

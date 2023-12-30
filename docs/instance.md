@@ -81,6 +81,9 @@ application.nappl.secret |  |  |
 application.nappl.ssl |  |  |
 application.nstl |  |  |
 application.rs |  |  |
+application.security.podSecurityContext.fsGroup |  | `1001` |
+application.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+application.security.podSecurityContext.runAsUser |  | `1001` |
 application.wave |  |  |
 cmis.image.name |  | `"cmis-connector"` |
 cmis.image.pullPolicy |  | `"IfNotPresent"` |
@@ -89,28 +92,48 @@ cmis.image.tag |  | `"ubi.9.1.1200.2023112711"` |
 cmis.ingress.backendProtocol |  | `"http"` |
 cmis.ingress.enabled |  | `true` |
 cmis.mounts.conf.path |  | `"/opt/ceyoniq/nscale-cmis-connector/conf"` |
+cmis.mounts.logs.path |  | `"/opt/ceyoniq/nscale-cmis-connector/logs"` |
+cmis.mounts.logs.size |  | `"1Gi"` |
 cmis.mounts.temp.path |  | `"/opt/ceyoniq/nscale-cmis-connector/temp"` |
 cmis.mounts.temp.size |  | `"1Gi"` |
 cmis.replicaCount |  | `1` |
+cmis.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+cmis.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+cmis.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+cmis.security.podSecurityContext.fsGroup |  | `1001` |
+cmis.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+cmis.security.podSecurityContext.runAsUser |  | `1001` |
 cmis.wave |  |  |
 database.adminAccount | the database admin account, if not set by secret | `"postgres"` |
 database.adminPassword | the database admin password, if not set by secret | `"postgres"` |
 database.adminSecret | the secret with credentials (account, password) for the database admin account. This setting has priority over adminAccount and adminPassword |  |
-database.image.name |  | `"postgres"` |
+database.image.name |  | `"bitnami/postgresql"` |
 database.image.tag |  | `15` |
-database.mounts.data.paths[0] |  | `"/var/lib/postgresql/data"` |
+database.mounts.conf.path |  | `"/opt/bitnami/postgresql/conf"` |
+database.mounts.data.paths[0] |  | `"/bitnami/postgresql"` |
 database.mounts.data.size |  | `"30Gi"` |
+database.mounts.temp.paths[0] |  | `"/tmp"` |
+database.mounts.temp.paths[1] |  | `"/opt/bitnami/postgresql/tmp"` |
+database.mounts.temp.size |  | `"1Gi"` |
 database.nscaleAccount | the technical account to own the nscale database, if not set by secret |  |
 database.nscaleDB | name of the nscale database |  |
 database.nscalePassword | password of the technical account, if not set by secret |  |
 database.nscaleSecret | the secret with credentials (account, password) for the nscale technical account. This setting has priority over account and password |  |
 database.replicaCount |  | `1` |
+database.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+database.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+database.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+database.security.podSecurityContext.fsGroup |  | `1001` |
+database.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+database.security.podSecurityContext.runAsUser |  | `1001` |
 ilm.image.name |  | `"ilm-connector"` |
 ilm.image.repo |  | `"ceyoniq.azurecr.io/release/nscale"` |
 ilm.image.tag |  | `"ubi.9.1.1100.2023102502"` |
 ilm.ingress.backendProtocol |  | `"http"` |
 ilm.ingress.enabled |  | `true` |
 ilm.mounts.conf.path |  | `"/opt/ceyoniq/nscale-for-sap/erp-connector-ilm/conf"` |
+ilm.mounts.logs.path |  | `"/opt/ceyoniq/nscale-for-sap/erp-connector-ilm/logs"` |
+ilm.mounts.logs.size |  | `"1Gi"` |
 ilm.mounts.temp.path |  | `"/opt/ceyoniq/nscale-for-sap/erp-connector-ilm/temp"` |
 ilm.mounts.temp.size |  | `"1Gi"` |
 ilm.nappl.account |  |  |
@@ -121,6 +144,12 @@ ilm.nappl.port |  |  |
 ilm.nappl.secret |  |  |
 ilm.nappl.ssl |  |  |
 ilm.replicaCount |  | `1` |
+ilm.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+ilm.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+ilm.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+ilm.security.podSecurityContext.fsGroup |  | `1001` |
+ilm.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+ilm.security.podSecurityContext.runAsUser |  | `1001` |
 mon.image.name |  | `"monitoring-console"` |
 mon.image.repo |  | `"ceyoniq.azurecr.io/release/nscale"` |
 mon.image.tag |  | `"ubi.9.1.1000.2023091818"` |
@@ -131,6 +160,12 @@ mon.mounts.data.paths[0] |  | `"/opt/ceyoniq/nscale-monitoring/workspace/.metada
 mon.mounts.data.size |  | `"10Gi"` |
 mon.mounts.license.path |  | `"/opt/ceyoniq/nscale-monitoring/workspace/license.xml"` |
 mon.replicaCount |  | `1` |
+mon.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+mon.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+mon.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+mon.security.podSecurityContext.fsGroup |  | `1001` |
+mon.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+mon.security.podSecurityContext.runAsUser |  | `1001` |
 nappl.database.account | alternative 1: the account name of the technical DB user for nscale |  |
 nappl.database.dialect | the database dialect to use |  |
 nappl.database.driverclass | the driver class to use |  |
@@ -152,11 +187,18 @@ nappl.mounts.conf.path |  | `"/opt/ceyoniq/nscale-server/application-layer/conf"
 nappl.mounts.license.path |  | `"/opt/ceyoniq/nscale-server/application-layer/conf/license.xml"` |
 nappl.mounts.logs.path |  | `"/opt/ceyoniq/nscale-server/application-layer/logs"` |
 nappl.mounts.logs.size |  | `"1Gi"` |
-nappl.mounts.temp.path |  | `"/opt/ceyoniq/nscale-server/application-layer/temp"` |
+nappl.mounts.temp.paths[0] |  | `"/opt/ceyoniq/nscale-server/application-layer/temp"` |
+nappl.mounts.temp.paths[1] |  | `"/tmp"` |
 nappl.mounts.temp.size |  | `"5Gi"` |
 nappl.nodeSelector | Kubernetes [`nodeSelector`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) to add to the Deployment. | `{}` |
 nappl.priorityClassName | Set the priority class for the Application Layer deployment if desired |  |
 nappl.replicaCount |  | `1` |
+nappl.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+nappl.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+nappl.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+nappl.security.podSecurityContext.fsGroup |  | `1001` |
+nappl.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+nappl.security.podSecurityContext.runAsUser |  | `1001` |
 nappl.tolerations | List of Kubernetes [`tolerations`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to add to the Deployment. | `[]` |
 nappl.updateStrategy |  | `"RollingUpdate"` |
 nappl.wave |  |  |
@@ -181,11 +223,18 @@ nappljobs.mounts.conf.path |  | `"/opt/ceyoniq/nscale-server/application-layer/c
 nappljobs.mounts.license.path |  | `"/opt/ceyoniq/nscale-server/application-layer/conf/license.xml"` |
 nappljobs.mounts.logs.path |  | `"/opt/ceyoniq/nscale-server/application-layer/logs"` |
 nappljobs.mounts.logs.size |  | `"1Gi"` |
-nappljobs.mounts.temp.path |  | `"/opt/ceyoniq/nscale-server/application-layer/temp"` |
+nappljobs.mounts.temp.paths[0] |  | `"/opt/ceyoniq/nscale-server/application-layer/temp"` |
+nappljobs.mounts.temp.paths[1] |  | `"/tmp"` |
 nappljobs.mounts.temp.size |  | `"5Gi"` |
 nappljobs.nodeSelector | Kubernetes [`nodeSelector`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) to add to the Deployment. | `{}` |
 nappljobs.priorityClassName | Set the priority class for the Application Layer deployment if desired |  |
 nappljobs.replicaCount |  | `1` |
+nappljobs.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+nappljobs.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+nappljobs.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+nappljobs.security.podSecurityContext.fsGroup |  | `1001` |
+nappljobs.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+nappljobs.security.podSecurityContext.runAsUser |  | `1001` |
 nappljobs.tolerations | List of Kubernetes [`tolerations`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to add to the Deployment. | `[]` |
 nappljobs.updateStrategy |  | `"RollingUpdate"` |
 nappljobs.wave |  |  |
@@ -197,7 +246,14 @@ nstl.image.tag |  | `"ubi.9.1.1200.2023112112"` |
 nstl.mounts.data.class | Sets the class of the data disk |  |
 nstl.mounts.data.size | Sets the size of the data disk | `"50Gi"` |
 nstl.mounts.logs.medium | the medium for the emptyDisk volume if you unset it, it drops it from the manifest |  |
-nstl.mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"10Gi"` |
+nstl.mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"5Gi"` |
+nstl.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+nstl.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+nstl.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+nstl.security.podSecurityContext.fsGroup |  | `1001` |
+nstl.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+nstl.security.podSecurityContext.runAsNonRoot |  | `true` |
+nstl.security.podSecurityContext.runAsUser |  | `1001` |
 pipeliner.dav.account | the dav user | `"pipeliner"` |
 pipeliner.dav.image | the Image to use for the DAV server | `{"name":"toolbox2","pullPolicy":"Always","repo":"cr.nplus.cloud/nplus","tag":"latest"}` |
 pipeliner.dav.image.pullPolicy | the DAV server image pull policy | `"Always"` |
@@ -213,6 +269,12 @@ pipeliner.mounts.data.size |  | `"10Gi"` |
 pipeliner.mounts.license.path |  | `"/opt/ceyoniq/nscale-pipeliner/workdir/license.xml"` |
 pipeliner.mounts.logs.path |  | `"/opt/ceyoniq/nscale-server/storage-layer/log"` |
 pipeliner.replicaCount |  | `1` |
+pipeliner.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+pipeliner.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+pipeliner.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+pipeliner.security.podSecurityContext.fsGroup |  | `1001` |
+pipeliner.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+pipeliner.security.podSecurityContext.runAsUser |  | `1001` |
 pipeliner.wave |  |  |
 rs.image.name |  | `"rendition-server"` |
 rs.image.repo |  | `"ceyoniq.azurecr.io/release/nscale"` |
@@ -223,7 +285,17 @@ rs.mounts.conf.path |  | `"/opt/ceyoniq/nscale-rendition-server/conf"` |
 rs.mounts.file.paths[0] |  | `"/opt/ceyoniq/nscale-rendition-server/work"` |
 rs.mounts.file.size |  | `"10Gi"` |
 rs.mounts.license.path |  | `"/opt/ceyoniq/nscale-rendition-server/conf/license.xml"` |
+rs.mounts.logs.path |  | `"/opt/ceyoniq/nscale-rendition-server/logs"` |
+rs.mounts.logs.size |  | `"5Gi"` |
+rs.mounts.temp.paths[0] |  | `"/tmp"` |
+rs.mounts.temp.size |  | `"10Gi"` |
 rs.replicaCount |  | `1` |
+rs.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+rs.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+rs.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+rs.security.podSecurityContext.fsGroup |  | `1001` |
+rs.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+rs.security.podSecurityContext.runAsUser |  | `1001` |
 web.image.name |  | `"application-layer-web"` |
 web.image.repo |  | `"ceyoniq.azurecr.io/release/nscale"` |
 web.image.tag |  | `"ubi.9.1.1200.2023112413"` |
@@ -232,7 +304,18 @@ web.ingress.cookie | on component level, set cookie affinity for the ingress exa
 web.ingress.enabled | on component level, enable or disable the ingress | component dependent |
 web.ingress.inputPath | this defines the path (on component level) for this component Example: `nscale_web` for nscale Web | component dependent |
 web.mounts.conf.path |  | `"/opt/ceyoniq/nscale-server/application-layer-web/conf"` |
+web.mounts.logs.medium | the medium for the emptyDisk volume if you unset it, it drops it from the manifest |  |
+web.mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"5Gi"` |
+web.mounts.temp.paths[0] |  | `"/opt/ceyoniq/nscale-server/application-layer-web/apache/work/Catalina/localhost"` |
+web.mounts.temp.paths[1] |  | `"/opt/ceyoniq/nscale-server/application-layer-web/apache/conf/Catalina/localhost"` |
+web.mounts.temp.paths[2] |  | `"/opt/ceyoniq/nscale-server/application-layer-web/apache/webapps"` |
 web.replicaCount |  | `1` |
+web.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+web.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+web.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+web.security.podSecurityContext.fsGroup |  | `1001` |
+web.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+web.security.podSecurityContext.runAsUser |  | `1001` |
 
 ## Common Image Configuration
 

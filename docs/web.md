@@ -25,7 +25,18 @@ ingress.cookie | on component level, set cookie affinity for the ingress example
 ingress.enabled | on component level, enable or disable the ingress | component dependent |
 ingress.inputPath | this defines the path (on component level) for this component Example: `nscale_web` for nscale Web | component dependent |
 mounts.conf.path |  | `"/opt/ceyoniq/nscale-server/application-layer-web/conf"` |
+mounts.logs.medium | the medium for the emptyDisk volume if you unset it, it drops it from the manifest |  |
+mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"5Gi"` |
+mounts.temp.paths[0] |  | `"/opt/ceyoniq/nscale-server/application-layer-web/apache/work/Catalina/localhost"` |
+mounts.temp.paths[1] |  | `"/opt/ceyoniq/nscale-server/application-layer-web/apache/conf/Catalina/localhost"` |
+mounts.temp.paths[2] |  | `"/opt/ceyoniq/nscale-server/application-layer-web/apache/webapps"` |
 replicaCount |  | `1` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 
 ## Common Image Configuration
 

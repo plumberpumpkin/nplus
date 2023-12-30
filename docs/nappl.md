@@ -38,11 +38,18 @@ mounts.conf.path |  | `"/opt/ceyoniq/nscale-server/application-layer/conf"` |
 mounts.license.path |  | `"/opt/ceyoniq/nscale-server/application-layer/conf/license.xml"` |
 mounts.logs.path |  | `"/opt/ceyoniq/nscale-server/application-layer/logs"` |
 mounts.logs.size |  | `"1Gi"` |
-mounts.temp.path |  | `"/opt/ceyoniq/nscale-server/application-layer/temp"` |
+mounts.temp.paths[0] |  | `"/opt/ceyoniq/nscale-server/application-layer/temp"` |
+mounts.temp.paths[1] |  | `"/tmp"` |
 mounts.temp.size |  | `"5Gi"` |
 nodeSelector | Kubernetes [`nodeSelector`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) to add to the Deployment. | `{}` |
 priorityClassName | Set the priority class for the Application Layer deployment if desired |  |
 replicaCount |  | `1` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsUser |  | `1001` |
 tolerations | List of Kubernetes [`tolerations`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to add to the Deployment. | `[]` |
 updateStrategy |  | `"RollingUpdate"` |
 wave |  |  |

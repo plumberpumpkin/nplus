@@ -27,7 +27,14 @@ image.tag |  | `"ubi.9.1.1200.2023112112"` |
 mounts.data.class | Sets the class of the data disk |  |
 mounts.data.size | Sets the size of the data disk | `"50Gi"` |
 mounts.logs.medium | the medium for the emptyDisk volume if you unset it, it drops it from the manifest |  |
-mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"10Gi"` |
+mounts.logs.size | the sizeLimit for the emptyDisk volume if you unset it, it uses cluster defaults | `"5Gi"` |
+security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
+security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
+security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
+security.podSecurityContext.fsGroup |  | `1001` |
+security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
+security.podSecurityContext.runAsNonRoot |  | `true` |
+security.podSecurityContext.runAsUser |  | `1001` |
 
 ## Common Image Configuration
 
