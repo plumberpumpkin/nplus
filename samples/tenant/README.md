@@ -59,6 +59,8 @@ instance.application.nstl |  | `"{{ include \"nplus.prefix\" . }}nstl.{{ .Releas
 instance.application.rs |  | `"{{ include \"nplus.prefix\" . }}rs.{{ .Release.Namespace }}"` |
 instance.application.waitFor[0] |  | `"-service {{ include \"nplus.prefix\" . }}nappl.{{ .Release.Namespace }}.svc.cluster.local:8080 -timeout 1800"` |
 instance.application.wave |  | `3` |
+instance.commercial.provider |  |  |
+instance.commercial.tenant |  |  |
 instance.components.application |  | `false` |
 instance.components.cmis |  | `false` |
 instance.components.database |  | `true` |
@@ -153,6 +155,8 @@ instance.ilm.security.containerSecurityContext.readOnlyRootFilesystem |  | `true
 instance.ilm.security.podSecurityContext.fsGroup |  | `1001` |
 instance.ilm.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
 instance.ilm.security.podSecurityContext.runAsUser |  | `1001` |
+instance.mon.activateRmi |  | `false` |
+instance.mon.activateSsl |  | `true` |
 instance.mon.image.name |  | `"monitoring-console"` |
 instance.mon.image.repo |  | `"ceyoniq.azurecr.io/release/nscale"` |
 instance.mon.image.tag |  | `"ubi.9.1.1000.2023091818"` |
@@ -165,7 +169,6 @@ instance.mon.mounts.license.path |  | `"/opt/ceyoniq/nscale-monitoring/workspace
 instance.mon.replicaCount |  | `1` |
 instance.mon.security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
 instance.mon.security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
-instance.mon.security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
 instance.mon.security.podSecurityContext.fsGroup |  | `1001` |
 instance.mon.security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
 instance.mon.security.podSecurityContext.runAsUser |  | `1001` |

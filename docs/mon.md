@@ -17,6 +17,8 @@ $ helm install my-release nplus/nplus-component-mon
 
 | Key | Description | Default |
 |-----|-------------|---------|
+activateRmi |  | `false` |
+activateSsl |  | `true` |
 image.name |  | `"monitoring-console"` |
 image.repo |  | `"ceyoniq.azurecr.io/release/nscale"` |
 image.tag |  | `"ubi.9.1.1000.2023091818"` |
@@ -29,7 +31,6 @@ mounts.license.path |  | `"/opt/ceyoniq/nscale-monitoring/workspace/license.xml"
 replicaCount |  | `1` |
 security.containerSecurityContext.allowPrivilegeEscalation |  | `false` |
 security.containerSecurityContext.capabilities.drop[0] |  | `"ALL"` |
-security.containerSecurityContext.readOnlyRootFilesystem |  | `true` |
 security.podSecurityContext.fsGroup |  | `1001` |
 security.podSecurityContext.fsGroupChangePolicy |  | `"OnRootMismatch"` |
 security.podSecurityContext.runAsUser |  | `1001` |
