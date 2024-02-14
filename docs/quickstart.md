@@ -206,7 +206,18 @@ Providing 10Gi of storage under the name "conf" of class "default"
 ```
 
 Now you have an empty cluster ready to get a first instance deployment
+Before deploying the first instance, we need to install the relevant CRDs. 
+Those CRDs are installed along with the nscale-cluster.
+```
+% helm install nplus-cluster nplus/nplus-cluster
 
+NAME: nplus-cluster
+LAST DEPLOYED: Wed Feb 14 19:32:12 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
 
 
 ## Deploy a nplus Instance
